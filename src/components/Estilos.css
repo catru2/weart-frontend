@@ -3,7 +3,7 @@
 }
 
 .contendor_Lading {
-    background-image: url("./../public/assets/fondo2.png");
+    background-image: url("./../../public/assets/fondo2.png");
     width: 100% !important;
     margin-top: -1.5%;
     height: 92.9vh !important;
@@ -48,7 +48,7 @@ body {
 
 
 .imagen_fondo{
-    background-image: url("./../public/assets/fondo.png");
+    background-image: url("./../../public/assets/fondo.png");
     width: 100% !important;
     margin-top: -1.5%;
     height: 92.9vh !important;
@@ -56,7 +56,7 @@ body {
     background-size: 100% 100%;
 }
 .imagen_colores{
-    background-image: url("./../public/assets/fondocolores.png");
+    background-image: url("./../../public/assets/fondocolores.png");
     width: 100% !important;
     height: 82.9vh !important;
     padding-top: 17.1vh;
