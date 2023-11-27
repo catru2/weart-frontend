@@ -1,14 +1,29 @@
+"use client"
 import React from 'react'
-import NavbarUser from '@/components/Navbaruser';
 import FormsUser from '@/components/FormsUser';
 import BodyUser from '@/components/BodyUser';
+import axios from 'axios';
+import { useEffect,useState } from 'react';
 function Userpage() {
+  const [user, setUser] = useState(0);
+  const uploadUser = async () =>{
+    const res = await axios.get("http://localhost:80/usuarios/get/by/token", {withCredentials: true});
+    setUser(res.data.data);
+  }
+  useEffect(()=>{
+    uploadUser();
+  },[])
   return (
  <div>
-     <NavbarUser/> 
      <div className='imagen_colores'>
-        <BodyUser/>
-      <FormsUser/>
+        {user ?(
+          <>
+          <BodyUser idUsuario={user}/>
+          <FormsUser idUsuario={user}/>
+          </>
+        ):(
+          <></>
+        )}
     </div>
  </div>
   )

@@ -266,43 +266,55 @@ height: 4vw;
     left: 8px;
 }
 .contenedor_cartas{
-    margin-top: -61px;
-    
-    margin-left: 400px; 
-    margin-right: 400px;
+    margin: 0 auto;
+    width: 70vw;
     display: flex;
-    justify-content: space-between;
-   
+    justify-content: center;
+}
+.cartas{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.card__container{
+    margin-left: 4vw;
+    width: 19.6vw;
+    margin-bottom: 2vw;
 }
 .contenedor_texto_inicio{
     display: flex;
     justify-content: space-between;
-    height: 36px;   
-    width: 300px;
-    
+    margin: 0;
+    padding: 0;
+}
+.link__card{
+    color: black;
+}
+.contenedor_texto_inicio p{
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
 }
 .contenedor_imagen{
-    height: 300px;   
-    width: 300px;
+    height: 300px;  
+    width: 100%;
     background-color:#F9F9F9;
 }
 .pintura_imagen{
-    height: 250px;   
-    width: 300px;
-    align-items: center;
+    height: 300px;   
+    width: 100%;
 }
 .nombre_usuario{
-    margin-left: 10px;
+    margin-left: 1vw;
 }
 
 .contenedor_like_comentarios{
     display: flex;
-    justify-content: space-between;
+    justify-content:flex-end;
     height: 30px;   
-    width: 300px;
-    column-count: 2;
+    width: 100%;
     margin-bottom: 5px;
-    background-color: red;
+    margin-top: 1vw;
 }
 
 .like_comentario{
@@ -325,9 +337,8 @@ height: 4vw;
     justify-content: space-between;
    
 }
-
-.titulo_username_body{
-   background-color: #759DF9;
+.contenedor_body_user{
+    margin-bottom: 5vw;
 }
 .selectsubir{
     width: 150px;
@@ -357,6 +368,7 @@ height: 4vw;
     position: absolute;
 }
 .contenedor_img_subir{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -364,7 +376,20 @@ height: 4vw;
     height: 70vh;
     border: 1px solid #ccc;
     border-radius: 5px;
-
+}
+.contenedor_img_subida{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 70vh;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.card_subida{
+    height: 100%;
+    width: 100%;
 }
 .card_subir{
     height: 75px;
@@ -378,10 +403,10 @@ height: 4vw;
     
 }
 .boton_foto_subir{
-    background: none;
-    border: none;
-    cursor: pointer;
-    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
 }
 
 .contenedor_caracteristicas_subir{

@@ -2,7 +2,7 @@ import React from "react";
 
 function Buttomcancelar(props) {
     return (
-      <button className='boton_cancelar'>{props.tipo}</button>
+      <button className='boton_cancelar' type={props.tipooo}>{props.tipo}</button>
     )
   }
   

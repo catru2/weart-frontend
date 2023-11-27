@@ -6,10 +6,8 @@ import NavbarSubir from '@/components/Navbarsubir'
 function Subirpage() {
   return (
     <div>
-        <NavbarSubir/>
         <div className='imagen_colores'>
       <FormsSubir/>
-       
     </div>
     </div>
   )

@@ -27,12 +27,19 @@ const navigation=useRouter()
 
   const handleSubmit = async (e) =>{
     e.preventDefault()
-    const res = await axios.post("http://localhost:3001/api/usuarios",usuario)
-    if(res.data.succesn){
-      alert("se registro exitosamente")
-      navigation.replace("/login")
+    
+    if(!usuario.nombre || !usuario.correo || !usuario.password || !usuario.fecha_nacimiento){
+      alert("Por favor llene todos los campos")
+    }else{
+      const res = await axios.post("http://localhost:80/usuarios",usuario)
+      console.log(res)
+      if(res.data.succesn){
+        alert("se registro exitosamente")
+        navigation.replace("/login")
+      }else{
+        alert("no se pudo registrar")
+      }
     }
-    alert("no se pudo registrar")
   }
 
 

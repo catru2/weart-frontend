@@ -26,13 +26,18 @@ function Formslogin() {
 
   const handleSubmit = async (e) =>{
     e.preventDefault()
-   const res= await axios.post("http://localhost:3001/api/signin",usuario)
+   if(!usuario.correo || !usuario.password){
+     alert("Por favor llene todos los campos")
+  }else{
+    const res= await axios.post("http://localhost:80/auth/signin",usuario)
    if(res.data?.token){
     alert("datos correctos")
     navigation.replace("/logeado/inicio")
+   }else{
+    alert("datos incorrectos")
    }
-   alert("datos incorrectos")
   }
+}
   return (
     <div className='contenedor_forms'>
       <form onSubmit={handleSubmit}>
@@ -45,11 +50,8 @@ function Formslogin() {
         <Buttomlogindife tipo="Registrarse"/>
         </Link>
         <Buttomlogin tipo="Entrar"/>
-       
         </div>
       </form>
-       
-            
     </div>
   )
 }

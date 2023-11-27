@@ -1,25 +1,38 @@
+"use client"
 import Img from "next/image";
 import Pintura from "@/../public/assets/pintura.png";
-import Like from "@/../public/assets/like.png";
-import comentario from "@/../public/assets/comentario.png";
-
-function Card() {
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+function Card(props) {
+  const [usuario, setUsuario] = useState({});
+  const [likes, setLikes] = useState(0);
+  const uploadUsuario = async () =>{
+    const data = await axios.get(`http://localhost:80/usuarios/${props.idUsuario}` ,{withCredentials:true})
+    setUsuario(data.data.data)
+  }
+  const uploadLikes = async () =>{
+    const data = await axios.get(`http://localhost:80/likes/numero/${props.idPintura}` ,{withCredentials:true})
+    setLikes(data.data.data)
+  }
+  useEffect(() => {
+    uploadUsuario();
+    uploadLikes();
+  }, []);
   return (
-    <div>
+    <div className="card__container">
       <div className="contenedor_texto_inicio">
-        <p>User</p>
-        <p>Category</p>
+        <Link href={`/logeado/user/${usuario.id_usuario}`} className="link__card">
+          <p>{usuario.nombre}</p>
+        </Link>
       </div>
       <div className="contenedor_imagen">
-        <Img src={Pintura} className="pintura_imagen" />
-        <p className="nombre_usuario">Name</p>
+        <Img src={props.imagen} className="pintura_imagen" width={400} height={600} />
+        <p className="nombre_usuario">{props.titulo}</p>
       </div>
       <div className="contenedor_like_comentarios">
-        <button className="botoncoment">
-          <Img src={comentario} className="like_comentario"/>
-        </button>
         <div className="contador">
-          <p>000</p>
+          <p>{likes}</p>
 
           <div className="heart-container" title="Like">
             <input type="checkbox" className="checkbox" id="Give-It-An-Id" />

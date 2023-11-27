@@ -9,6 +9,7 @@ import boton3 from "@/../public/assets/boton3.png"
 import InputInicio from './InputInicio';
 import Img from 'next/image'
 import Lupa from "@/../public/assets/lupa.png"
+import Link from 'next/link'
 function Navbarinicio() {
   return (
     <div className='contenedor_navbar'>
@@ -22,18 +23,23 @@ function Navbarinicio() {
       </div>
       </div>
       <div className='contenedor_imagenes_iconos_barra'>
+        <Link href="/logeado/inicio">
         <div className='contenedor_botones_logo_busqueda'>
-           <Logo src={logo} className='logo'/>
-           
+              <Logo src={logo} className='logo'/>
         </div>
+        </Link>
       </div>
       
    
       <div className='contenedor_imagenes_iconos_barra'>
         <div className='contenedor_botones_logo_busqueda'>
-      <button className='botonnav'><Boton src={boton1} className='boton1'/></button>
+      <Link href="/logeado/subir">
+       <button className='botonnav'><Boton src={boton1} className='boton1'/></button>
+      </Link>
       <button className='botonnav'><Boton src={boton2} className='boton1'/></button>
-      <button className='botonnav'><Boton src={boton3} className='boton1'/></button>
+      <Link href="/logeado/user">
+        <button className='botonnav'><Boton src={boton3} className='boton1'/></button>
+      </Link>
         </div>
       </div>
     </div>
