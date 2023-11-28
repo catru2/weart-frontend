@@ -1,12 +1,16 @@
 "use client"
 import Img from "next/image";
-import Pintura from "@/../public/assets/pintura.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 function Card(props) {
+  const router = useRouter();
   const [usuario, setUsuario] = useState({});
   const [likes, setLikes] = useState(0);
+  const [like,SetLike] = useState({});
+  const [bandera, setBandera] = useState(false);
+
   const uploadUsuario = async () =>{
     const data = await axios.get(`http://localhost:80/usuarios/${props.idUsuario}` ,{withCredentials:true})
     setUsuario(data.data.data)
@@ -15,9 +19,38 @@ function Card(props) {
     const data = await axios.get(`http://localhost:80/likes/numero/${props.idPintura}` ,{withCredentials:true})
     setLikes(data.data.data)
   }
+  const handleChange = async (e) =>{
+    if(e.target.checked){
+      if(!like && bandera == false){
+        await axios.post(`http://localhost:80/likes/${props.idPintura}`,{} ,{withCredentials:true})
+        setBandera(true)
+      }
+      if(like && bandera == false){
+        await axios.put(`http://localhost:80/likes/${props.idPintura}`,{} ,{withCredentials:true})
+        setBandera(true)
+      }
+    }else{
+      await axios.delete(`http://localhost:80/likes/${props.idPintura}` ,{withCredentials:true})
+      setBandera(false)
+    }
+  }
+
+  
+  const uploadMylike = async () =>{
+    const res = await axios.get(`http://localhost:80/likes/getLikes/${props.idPintura}`, {withCredentials:true})
+    SetLike(res.data.data[0]);
+  }
   useEffect(() => {
     uploadUsuario();
     uploadLikes();
+    uploadMylike();
+
+    if(like){
+      if(like.deleted == 0){
+        setBandera(true);
+      }
+    }
+    
   }, []);
   return (
     <div className="card__container">
@@ -34,8 +67,8 @@ function Card(props) {
         <div className="contador">
           <p>{likes}</p>
 
-          <div className="heart-container" title="Like">
-            <input type="checkbox" className="checkbox" id="Give-It-An-Id" />
+            <div className="heart-container" title="Like">
+            <input type="checkbox" className="checkbox" id={`Give-It-An-Id${props.idPintura}`} onChange={handleChange} />
             <div className="svg-container">
               <svg
                 viewBox="0 0 24 24"
@@ -66,6 +99,7 @@ function Card(props) {
               </svg>
             </div>
           </div>
+
         </div>
       </div>
     </div>
