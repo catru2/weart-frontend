@@ -9,7 +9,6 @@ import Swal from 'sweetalert2'
 import "./Estilos.css"
 function BodyUser(props) {
   const params = useParams();
-  const router = useRouter()
   const [user, setUser] = useState({});
   const [userToken, setUserToken] = useState(0);
   const [seguido, setSeguido] = useState({});

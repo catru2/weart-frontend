@@ -10,7 +10,6 @@ function FormPrueba() {
         const uploadPinturasRandom = async () => {
             const data = await axios.get("http://localhost:80/pinturas/random/get")
             setPinturasRandom(data.data.data)
-            console.log(data.data.data)
           }
         uploadPinturasRandom()
       },[])
