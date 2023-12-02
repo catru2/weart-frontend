@@ -127,7 +127,7 @@ function BodyUser(props) {
            {params.id ? (
             <></>
            ):(
-            <button onClick={handleChange}>Editar Descripcion:</button>
+            <button onClick={handleChange} className="boton_editar_descripcion">Editar Descripcion:</button>
            )}
         <div className="age_user">
           <p> Age: {fecha} </p>

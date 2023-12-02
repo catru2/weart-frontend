@@ -3,27 +3,26 @@ import React from 'react'
 import "./Estilos.css"
 import Boton from 'next/image';
 import Logo from 'next/image';
+import Ayuda from 'next/image';
+import ayuda from "@/../public/assets/ayuda.png"
 import logo from "@/../public/assets/logowe.png"
 import boton1 from "@/../public/assets/boton1.png"
 import boton2 from "@/../public/assets/boton2.png"
 import boton3 from "@/../public/assets/boton3.png"
-import InputInicio from './InputInicio';
-import Img from 'next/image'
-import Lupa from "@/../public/assets/lupa.png"
+
 import Link from 'next/link'
+import next from 'next';
 function Navbarinicio() {
 
   return (
     <div className='contenedor_navbar'>
       <div className='contenedor_imagenes_iconos_barra'>
       <div className='contenedor_botones_logo_busqueda'>
-      <div className='busqueda'>
-        <InputInicio tipo="barra"/> 
-        <Img src={Lupa} className='lupa' alt='lupa'/>
-      </div>
-     
+    
+      <button className='botonnav'><Ayuda src={ayuda} className='boton1' alt='ayuda'/></button>
       </div>
       </div>
+      
       <div className='contenedor_imagenes_iconos_barra'>
         <Link href="/logeado/inicio">
         <div className='contenedor_botones_logo_busqueda'>
