@@ -127,7 +127,6 @@ function BodyUser(props) {
         <div className="description_user">
           <p> Description: {user.biografia}</p>
         </div>
-           
         <div className="age_user">
           <p> Age: {fecha} </p>
         </div>
