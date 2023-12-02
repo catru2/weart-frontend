@@ -2,13 +2,14 @@
 import React from "react";
 import Img from "next/image";
 import userimg from "@/../public/assets/boton3.png";
-import { useParams } from "next/navigation";
+import { useParams,useRouter } from "next/navigation";
 import { useEffect,useState } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2'
 import "./Estilos.css"
 function BodyUser(props) {
   const params = useParams();
+  const router = useRouter()
   const [user, setUser] = useState({});
   const [userToken, setUserToken] = useState(0);
   const [seguido, setSeguido] = useState({});
@@ -35,12 +36,6 @@ function BodyUser(props) {
       },
       showCancelButton: true
     });
-    // if (text) {
-    //   Swal.fire(text);
-    // }
-    // setDes({
-    //   descripcion: text,
-    // });
     mandarAxios(text);
   }
 
@@ -115,7 +110,16 @@ function BodyUser(props) {
   return (
     <div className="contenedor_body_user">
       <div className="titulo_username_body">
+      {params.id ? (
+            <></>
+           ):(
+            <button onClick={handleChange} className="edit_description__btn">Editar Descripcion</button>
+           )}
         <h2>{user.nombre}</h2>
+        {params.id ? (<>
+        </>):(
+          <button className="edit_description__btn">Cerrar Sesion</button>
+        )}
       </div>
       <div className="contenedor_img_user_body">
         <Img src={userimg} className="img_user_body" />
@@ -124,11 +128,7 @@ function BodyUser(props) {
         <div className="description_user">
           <p> Description: {user.biografia}</p>
         </div>
-           {params.id ? (
-            <></>
-           ):(
-            <button onClick={handleChange}>Editar Descripcion:</button>
-           )}
+           
         <div className="age_user">
           <p> Age: {fecha} </p>
         </div>

@@ -284,10 +284,31 @@ height: 4vw;
 .contenedor_texto_inicio{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
+.edit_description__btn{
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    height: 3vw;
+    color: #759DF9;
+    border: 2px solid #FED880;
+    font-weight: bold;
+    transition-duration: 150ms;
+}
+.btn_tools{
+    margin: 0.4vw;
+}
+.btn_tools:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: 150ms;
+}
 .contenedor_body_user{
+    margin-top: -40px;
     margin-bottom: 5vw;
 }
 .link__card{
@@ -357,14 +378,14 @@ height: 4vw;
 }
 
 .titulo_username_body{
-   
-    margin-top: -55px;
-     display: flex;
-     justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
 }
 .contenedor_img_user_body{
     display: flex;
-     justify-content: center;   
+     justify-content: center;  
 }
 .img_user_body{
     width: 150px;

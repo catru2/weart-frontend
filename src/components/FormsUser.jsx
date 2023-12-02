@@ -26,7 +26,7 @@ function FormsUser(props) {
         <div className="cartas">
         {pinturas.map((pintura,index)=>(
           <div key={index}>
-            <Card imagen={pintura.imagen} titulo={pintura.titulo} descripcion={pintura.descripcion} idUsuario={pintura.id_usuario} idPintura={pintura.id_pintura}/>
+            <Card imagen={pintura.imagen} titulo={pintura.titulo} descripcion={pintura.descripcion} idUsuario={pintura.id_usuario} idPintura={pintura.id_pintura} usuarioCurrent={props.idUsuario} />
           </div>
         ))}
         </div>
