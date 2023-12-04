@@ -7,6 +7,7 @@ import { useEffect,useState } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2'
 import "./Estilos.css"
+import Pusher from "pusher-js";
 function BodyUser(props) {
   const params = useParams();
   const [user, setUser] = useState({});
@@ -90,7 +91,16 @@ function BodyUser(props) {
     uploadUser();
     obtenerToken();
     uploadSeguidor();
-  })
+
+    const pusher = new Pusher("d7b4aa0b4fd81f28bd44",{
+      cluster: "us2"
+    })
+
+    const channel = pusher.subscribe("like");
+    channel.bind("weart", function(data){
+    setSeguido(prevSeguido => [...prevSeguido, data]);
+  }
+  )},[])
 
 
 
