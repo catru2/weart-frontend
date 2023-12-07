@@ -11,10 +11,10 @@ function FormsUser(props) {
   const uploadPinturas = async () => {
     let res = null
     if(params.id){
-      res = await axios.get(`http://localhost:80/pinturas/usuario/${params.id}`, {withCredentials: true});
+      res = await axios.get(`http://34.225.204.31/pinturas/usuario/${params.id}`, {withCredentials: true});
     setPinturas(res.data.data)
     }else{
-      res = await axios.get(`http://localhost:80/pinturas/usuario/${props.idUsuario}`, {withCredentials: true});
+      res = await axios.get(`http://34.225.204.31/pinturas/usuario/${props.idUsuario}`, {withCredentials: true});
     setPinturas(res.data.data)
     }
   }

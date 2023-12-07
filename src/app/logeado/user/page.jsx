@@ -7,7 +7,7 @@ import { useEffect,useState } from 'react';
 function Userpage() {
   const [user, setUser] = useState(0);
   const uploadUser = async () =>{
-    const res = await axios.get("http://localhost:80/usuarios/get/by/token", {withCredentials: true});
+    const res = await axios.get("http://34.225.204.31/usuarios/get/by/token", {withCredentials: true});
     setUser(res.data.data);
   }
   useEffect(()=>{

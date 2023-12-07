@@ -31,7 +31,7 @@ const navigation=useRouter()
     if(!usuario.nombre || !usuario.correo || !usuario.password || !usuario.fecha_nacimiento){
       alert("Por favor llene todos los campos")
     }else{
-      const res = await axios.post("http://localhost:80/usuarios",usuario)
+      const res = await axios.post("http://34.225.204.31/usuarios",usuario)
       console.log(res)
       if(res.data.succesn){
         alert("se registro exitosamente")

@@ -8,7 +8,7 @@ function FormPrueba() {
     
       useEffect(()=>{
         const uploadPinturasRandom = async () => {
-            const data = await axios.get("http://localhost:80/pinturas/random/get")
+            const data = await axios.get("http://34.225.204.31/pinturas/random/get")
             setPinturasRandom(data.data.data)
           }
         uploadPinturasRandom()

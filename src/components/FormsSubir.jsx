@@ -31,7 +31,7 @@ function FormsSubir() {
     formData.append("titulo", pintura.titulo);
     formData.append("descripcion", pintura.descripcion);
     formData.append("imagen", imagen);
-      await axios.post("http://localhost:80/pinturas",formData,{withCredentials:true})
+      await axios.post("http://34.225.204.31/pinturas",formData,{withCredentials:true})
     alert("Pintura subida")
       router.replace("/logeado/inicio")
     }

@@ -18,7 +18,7 @@ function Card(props) {
 
   const uploadUsuario = async () => {
     const data = await axios.get(
-      `http://localhost:80/usuarios/${props.idUsuario}`,
+      `http://34.225.204.31/usuarios/${props.idUsuario}`,
       { withCredentials: true }
     );
     setUsuario(data.data.data);
@@ -26,7 +26,7 @@ function Card(props) {
 
   const uploadLikes = async () => {
     const data = await axios.get(
-      `http://localhost:80/likes/numero/${props.idPintura}`,
+      `http://34.225.204.31/likes/numero/${props.idPintura}`,
       { withCredentials: true }
     );
     setLikes(data.data.data);
@@ -36,7 +36,7 @@ function Card(props) {
     if (e.target.checked) {
       if (!like) {
         await axios.post(
-          `http://localhost:80/likes/${props.idPintura}`,
+          `http://34.225.204.31/likes/${props.idPintura}`,
           {},
           { withCredentials: true }
         );
@@ -44,21 +44,21 @@ function Card(props) {
       if (like) {
         if(like.deleted == 1){
           await axios.put(
-            `http://localhost:80/likes/${props.idPintura}`,
+            `http://34.225.204.31/likes/${props.idPintura}`,
             {},
             { withCredentials: true }
           );
         }
       }
     } else {
-      await axios.delete(`http://localhost:80/likes/${props.idPintura}`, {
+      await axios.delete(`http://34.225.204.31/likes/${props.idPintura}`, {
         withCredentials: true,
       });
     }
   };  
   const uploadMylike = async () => {
     const res = await axios.get(
-      `http://localhost:80/likes/getLikes/${props.idPintura}`,
+      `http://34.225.204.31/likes/getLikes/${props.idPintura}`,
       { withCredentials: true }
     );
     SetLike(res.data.data[0]);
@@ -75,7 +75,7 @@ function Card(props) {
       confirmButtonText: "Si, eliminar!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:80/pinturas/${props.idPintura}`, {withCredentials:true})
+        axios.delete(`http://34.225.204.31/pinturas/${props.idPintura}`, {withCredentials:true})
         Swal.fire({
           title: "Eliminado!",
           text: "Tu publicacion se elimino.",
@@ -98,7 +98,7 @@ function Card(props) {
     });
 
     if(text){
-      axios.patch(`http://localhost:80/pinturas/${props.idPintura}`, {titulo:text}, {withCredentials:true})
+      axios.patch(`http://34.225.204.31/pinturas/${props.idPintura}`, {titulo:text}, {withCredentials:true})
     Swal.fire({
       title: "Actualizado!",
       text: "Tu publicacion se actualizo.",

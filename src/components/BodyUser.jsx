@@ -17,9 +17,9 @@ function BodyUser(props) {
   const uploadUser = async () => {
     let res=null
     if(params.id){
-      res = await axios.get(`http://localhost:80/usuarios/${params.id}`, {withCredentials: true});
+      res = await axios.get(`http://34.225.204.31/usuarios/${params.id}`, {withCredentials: true});
     }else{
-      res = await axios.get(`http://localhost:80/usuarios/${props.idUsuario}`, {withCredentials: true});
+      res = await axios.get(`http://34.225.204.31/usuarios/${props.idUsuario}`, {withCredentials: true});
     }
     setUser(res.data.data);
   }
@@ -40,19 +40,19 @@ function BodyUser(props) {
   }
 
   const obtenerToken = async () => {
-    const res = await axios.get("http://localhost:80/usuarios/get/by/token", {withCredentials: true});
+    const res = await axios.get("http://34.225.204.31/usuarios/get/by/token", {withCredentials: true});
     setUserToken(res.data.data);
   }
   const handleSubmit = async (e) => {
       e.preventDefault()
       if(!seguido){
-        await axios.post(`http://localhost:80/seguidores/${params.id}`, {}, {withCredentials:true})
+        await axios.post(`http://34.225.204.31/seguidores/${params.id}`, {}, {withCredentials:true})
         setBandera(true);
         alert("Ahora sigues a este usuario")
       }
       if(seguido){
         if(seguido.deleted == 1){
-          await axios.patch(`http://localhost:80/seguidores/${params.id}`, {}, {withCredentials:true})
+          await axios.patch(`http://34.225.204.31/seguidores/${params.id}`, {}, {withCredentials:true})
           setBandera(true);
           alert("Ahora sigues de nuevo a este usuario")
         }
@@ -60,20 +60,20 @@ function BodyUser(props) {
   }
   const handleSubmitDejarSeguir = async (e) =>{
     e.preventDefault()
-    await axios.delete(`http://localhost:80/seguidores/${params.id}`, {withCredentials:true})
+    await axios.delete(`http://34.225.204.31/seguidores/${params.id}`, {withCredentials:true})
     setBandera(false);
     alert("Ahora no sigues a este usuario")
   }
   
   const mandarAxios = async (text) => {
     if(props.idUsuario && text){
-      await axios.patch("http://localhost:80/usuarios",{descripcion:text},{withCredentials:true})
+      await axios.patch("http://34.225.204.31/usuarios",{descripcion:text},{withCredentials:true})
     }
   }
 
   const uploadSeguidor = async () => {
     try{
-      const res = await axios.get(`http://localhost:80/seguidores/bandera/${params.id}`, {withCredentials: true});
+      const res = await axios.get(`http://34.225.204.31/seguidores/bandera/${params.id}`, {withCredentials: true});
       setSeguido(res.data.data[0]);
       if(res.data.data[0]){
         if(res.data.data[0].deleted == 0)

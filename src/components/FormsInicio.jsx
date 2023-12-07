@@ -8,7 +8,7 @@ function FormsInicio() {
 
   useEffect(()=>{
       const uploadPinturas = async() => {
-        const data = await axios.get("http://localhost:80/pinturas")
+        const data = await axios.get("http://34.225.204.31/pinturas")
         setPinturas(data.data.data)
       }
 

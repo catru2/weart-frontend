@@ -29,7 +29,7 @@ function Formslogin() {
    if(!usuario.correo || !usuario.password){
      alert("Por favor llene todos los campos")
   }else{
-    const res= await axios.post("http://localhost:80/auth/signin",usuario,{withCredentials:true})
+    const res= await axios.post("http://34.225.204.31/auth/signin",usuario,{withCredentials:true})
    if(res.data?.token){
     alert("datos correctos")
     navigation.replace("/logeado/inicio")
