@@ -7,7 +7,7 @@ import boton1 from "@/../public/assets/boton2.png"
 import boton2 from "@/../public/assets/boton3.png"
 import InputInicio from './InputInicio';
 import Img from 'next/image'
-import Lupa from "@/../public/assets/lupa.png"
+import Lupa from "@/../public/assets/Lupa.png"
 function NavbarSubir() {
   return (
     <div className='contenedor_navbar'>
